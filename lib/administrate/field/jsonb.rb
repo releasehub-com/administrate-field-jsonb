@@ -9,7 +9,7 @@ module Administrate
     class JSONB < Administrate::Field::Base
 
       def transform
-        return nil if data.blank?
+        return blank_value if data.blank?
         return data unless options[:transform].present? && options[:transform].is_a?(Array)
 
         result = data
@@ -37,6 +37,10 @@ module Administrate
 
       def blank_sign
         options[:blank_sign] || '-'
+      end
+
+      def blank_value
+        options[:blank_value] || nil
       end
 
       class Engine < ::Rails::Engine

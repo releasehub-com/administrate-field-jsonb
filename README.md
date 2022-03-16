@@ -80,6 +80,17 @@ ATTRIBUTE_TYPES = {
 }.freeze
 ```
 
+To choose what value to use when there is an empty value, use `blank_value` option, by default it is `nil`.
+
+```ruby
+ATTRIBUTE_TYPES = {
+  # ...
+  details: Field::JSONB.with_options(
+    blank_value: {}
+  )
+}.freeze
+```
+
 ## How it looks like
 
 ### Form
